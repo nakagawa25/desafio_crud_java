@@ -6,78 +6,79 @@ import Camada_Negocio.Vendedor;
 
 import java.util.Scanner;
 
-public class Leitura extends PadraoTela {
+public class Exclusao extends PadraoTela {
     @Override
     public void Printar(Profissional profissional) {
         try {
             LimpaTela();
             if (ValidarGerente(profissional)) {
-                Gerente gerente = new Gerente();
+                Gerente gerente = (Gerente) profissional;
                 Desenha("Escolha uma opção");
-                Desenha("1 - Ler Cliente");
-                Desenha("2 - Ler Funcionario");
-                Desenha("3 - Ler Pedido");
-                Desenha("4 - Ler Produto");
+                Desenha("1 - Excluir Cliente");
+                Desenha("2 - Excluir Funcionario");
+                Desenha("3 - Excluir Pedido");
+                Desenha("4 - Excluir Produto");
                 Desenha("Escolha: ");
                 Scanner scanner = new Scanner(System.in);
                 int escolha = scanner.nextInt();
                 switch (escolha) {
                     case 1:
-                        Desenha("Digite o ID para consulta (-1 para retornar tudo):");
+                        Desenha("Digite o ID:");
                         int idCliente = scanner.nextInt();
-                        gerente.LerCliente(idCliente);
+                        gerente.ExcluirCliente(idCliente);
                         break;
                     case 2:
-                        Desenha("Digite o ID para consulta (-1 para retornar tudo):");
+                        Desenha("Digite o ID:");
                         int idFuncionario = scanner.nextInt();
-                        gerente.LerFuncionario(idFuncionario);
+                        gerente.ExcluirFuncionario(idFuncionario);
                         break;
                     case 3:
-                        Desenha("Digite o ID para consulta (-1 para retornar tudo):");
+                        Desenha("Digite o ID:");
                         int idPedido = scanner.nextInt();
-                        gerente.LerPedido(idPedido);
+                        gerente.ExcluirPedido(idPedido);
                         break;
                     case 4:
-                        Desenha("Digite o ID para consulta (-1 para retornar tudo):");
+                        Desenha("Digite o ID:");
                         int idProduto = scanner.nextInt();
-                        gerente.LerProduto(idProduto);
+                        gerente.ExcluirProduto(idProduto);
                         break;
                     default:
-                        Desenha("Opção Inválida!");
+                        Desenha("Opção incorreta!");
                         break;
                 }
             } else {
-                Vendedor vendedor = new Vendedor();
+                Vendedor vendedor = (Vendedor) profissional;
                 Desenha("Escolha uma opção");
-                Desenha("1 - Ler Cliente");
-                Desenha("2 - Ler Pedido");
-                Desenha("3 - Ler Produto");
+                Desenha("1 - Excluir Cliente");
+                Desenha("2 - Excluir Pedido");
+                Desenha("3 - Excluir Produto");
                 Desenha("Escolha: ");
                 Scanner scanner = new Scanner(System.in);
                 int escolha = scanner.nextInt();
                 switch (escolha) {
                     case 1:
-                        Desenha("Digite o ID para consulta (-1 para retornar tudo):");
+                        Desenha("Digite o ID:");
                         int idCliente = scanner.nextInt();
-                        vendedor.LerCliente(idCliente);
+                        vendedor.ExcluirCliente(idCliente);
                         break;
                     case 2:
-                        Desenha("Digite o ID para consulta (-1 para retornar tudo):");
+                        Desenha("Digite o ID:");
                         int idPedido = scanner.nextInt();
-                        vendedor.LerPedido(idPedido);
+                        vendedor.ExcluirPedido(idPedido);
                         break;
                     case 3:
-                        Desenha("Digite o ID para consulta (-1 para retornar tudo):");
+                        Desenha("Digite o ID:");
                         int idProduto = scanner.nextInt();
-                        vendedor.LerProduto(idProduto);
+                        vendedor.ExcluirProduto(idProduto);
                         break;
                     default:
-                        Desenha("Opção Inválida!");
+                        Desenha("Opção inválida!");
                         break;
                 }
             }
         } catch (Exception erro) {
-            Desenha("Erro na Leitura. Erro: " + erro.getMessage());
+            Desenha("Erro na Exclusão. Erro: " + erro.getMessage());
         }
     }
 }
+

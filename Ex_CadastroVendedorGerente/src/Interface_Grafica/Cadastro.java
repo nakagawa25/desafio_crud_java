@@ -95,7 +95,7 @@ public class Cadastro extends PadraoTela {
                 }
             }
         }catch (Exception erro){
-            Desenha(erro.getMessage());
+            Desenha("Erro no Cadastro. Erro: " + erro.getMessage());
         }
     }
 }

@@ -11,8 +11,8 @@ public class Menu extends PadraoTela {
             Scanner scanner = new Scanner(System.in);
 
             int opcao = 0;
-            while (opcao != 3) {
-                Desenha("Opções:     1 - Cadastro       2 - Leitura     3 - Sair");
+            while (opcao != 4) {
+                Desenha("Opções:     1 - Cadastro       2 - Leitura     3 - Excluir     4 - Sair");
                 Desenha("Escolha: ");
                 int escolha = 0;
                 try{
@@ -33,7 +33,12 @@ public class Menu extends PadraoTela {
                         leitura.Printar(profissional);
                         break;
                     case 3:
-                        opcao = 3;
+                        Desenha("Você escolheu Exclusão!");
+                        Exclusao exclusao = new Exclusao();
+                        exclusao.Printar(profissional);
+                        break;
+                    case 4:
+                        opcao = 4;
                         break;
                     default:
                         Desenha("Escolha incorreta!");

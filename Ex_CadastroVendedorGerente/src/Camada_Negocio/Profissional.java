@@ -9,10 +9,11 @@ import VO.FuncionarioVO;
 import VO.PedidoVO;
 import VO.ProdutoVO;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Profissional {
-    public void CadastrarCliente(int id, String nome){
+    public void CadastrarCliente(int id, String nome) throws IOException {
         ClienteVO cliente = new ClienteVO();
         cliente.SetID(id);
         cliente.SetNome(nome);
@@ -21,7 +22,7 @@ public class Profissional {
         clienteDAO.Cadastrar(cliente);
     }
 
-    public void CadastrarPedido(int id, int idCliente, int idProduto){
+    public void CadastrarPedido(int id, int idCliente, int idProduto) throws IOException {
         PedidoVO pedido = new PedidoVO();
         pedido.SetID(id);
         pedido.SetIdCliente(idCliente);
@@ -31,7 +32,7 @@ public class Profissional {
         pedidoDAO.Cadastrar(pedido);
     }
 
-    public void CadastrarProduto(int id, String descricao){
+    public void CadastrarProduto(int id, String descricao) throws IOException {
         ProdutoVO produto = new ProdutoVO();
         produto.SetID(id);
         produto.SetDescricao(descricao);
@@ -63,5 +64,29 @@ public class Profissional {
         for(int i = 0; i < listaProdutos.size(); i++){
             System.out.println(listaProdutos.get(i).GetID() + " " + listaProdutos.get(i).GetDescricao());
         }
+    }
+
+    public void ExcluirCliente(int id) throws IOException {
+        ClienteVO cliente = new ClienteVO();
+        cliente.SetID(id);
+        ClienteDAO clienteDAO = new ClienteDAO();
+        clienteDAO.Excluir(cliente);
+        System.out.println("Cliente excluído com sucesso! ");
+    }
+
+    public void ExcluirPedido(int id) throws IOException {
+        PedidoVO pedido = new PedidoVO();
+        pedido.SetID(id);
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        pedidoDAO.Excluir(pedido);
+        System.out.println("Pedido excluído com sucesso! ");
+    }
+
+    public void ExcluirProduto(int id) throws IOException {
+        ProdutoVO produto = new ProdutoVO();
+        produto.SetID(id);
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        produtoDAO.Excluir(produto);
+        System.out.println("Produto excluído com sucesso! ");
     }
 }

@@ -1,5 +1,2 @@
+1;e
 1;Lucas
-2;Kaique
-1;Nakagawa
-3;Fit
-4;Lais
